@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.redditclone.R
 import com.example.redditclone.databinding.ItemTopicBinding
-import com.example.redditclone.model.Topic
+import com.example.redditclone.db.entities.Topic
 
 /**
  * Created by aizat

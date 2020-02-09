@@ -1,32 +1,21 @@
 package com.example.redditclone.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.LiveData
 import com.example.redditclone.base.BaseAndroidViewModel
-import com.example.redditclone.model.Topic
+import com.example.redditclone.db.AppDatabase
+import com.example.redditclone.db.entities.Topic
+import com.example.redditclone.repository.TopicRepository
 
 /**
  * Created by aizat
  */
 class HomeViewModel(application: Application) : BaseAndroidViewModel(application) {
 
-    /**
-     * return stub data
-     */
-    fun getTopics(): List<Topic> {
+    private val db = AppDatabase(application)
+    private val repository = TopicRepository(db)
 
-        val topics = ArrayList<Topic>()
-        for (i in 0..20) {
-            topics.add(
-                Topic(
-                    i,
-                    "This is title for stub data",
-                    "This is content fro stub data. Content cannot exceed 255 characters.\nsecond line for content",
-                    i,
-                    null
-                )
-            )
-        }
-
-        return topics
+    fun getTopics(): LiveData<List<Topic>> {
+        return repository.getTopics(20)
     }
 }
