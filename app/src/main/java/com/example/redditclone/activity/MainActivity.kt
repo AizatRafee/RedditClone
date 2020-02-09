@@ -1,8 +1,12 @@
-package com.example.redditclone
+package com.example.redditclone.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.redditclone.R
 
+/**
+ * Created by aizat
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
