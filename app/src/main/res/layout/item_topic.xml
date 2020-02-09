@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="topic"
             type="com.example.redditclone.db.entities.Topic" />
@@ -47,23 +46,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_content">
 
-                <ImageButton
+                <ImageView
+                    android:id="@+id/ib_upvote"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/transparent"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:padding="8dp"
                     android:src="@drawable/ic_arrow_upward_24px" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="12.3K"
+                    voteCount="@{topic.vote}"
                     android:textColor="@color/black" />
 
-                <ImageButton
+                <ImageView
+                    android:id="@+id/ib_downvote"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/transparent"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:padding="8dp"
                     android:src="@drawable/ic_arrow_downward_24px" />
 
             </LinearLayout>

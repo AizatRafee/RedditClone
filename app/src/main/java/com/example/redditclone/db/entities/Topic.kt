@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
 data class Topic(
     val title: String?,
     val content: String?,
-    val vote: Int,
+    var vote: Int,
     val userVote: Boolean?
 ) {
     @PrimaryKey(autoGenerate = true)

@@ -19,4 +19,10 @@ interface TopicDao {
 
     @Query("SELECT * FROM topic ORDER BY vote DESC LIMIT :count")
     fun getTopics(count: Int): LiveData<List<Topic>>
+
+    @Query("UPDATE topic SET vote = (vote+1) WHERE id = :id")
+    suspend fun updateUpVote(id: Int): Int
+
+    @Query("UPDATE topic SET vote = (vote-1) WHERE id = :id")
+    suspend fun updateDownVote(id: Int): Int
 }

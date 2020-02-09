@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/post_title_hint"
             android:padding="16dp"
+            android:maxLength="50"
             android:text="@={viewmodel.title}" />
 
         <EditText
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/post_content_hint"
             android:padding="16dp"
+            android:maxLines="255"
             android:text="@={viewmodel.content}" />
 
     </LinearLayout>

@@ -55,6 +55,14 @@ class HomeFragment : Fragment() {
             topicsAdapter.topic = it
             topicsAdapter.notifyDataSetChanged()
         })
+
+        topicsAdapter.upVoteEvent.observe(viewLifecycleOwner, Observer {
+            viewModel.upVote(it)
+        })
+
+        topicsAdapter.downVoteEvent.observe(viewLifecycleOwner, Observer {
+            viewModel.downVote(it)
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

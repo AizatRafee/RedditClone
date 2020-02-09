@@ -13,5 +13,9 @@ class TopicRepository(
 
     suspend fun saveTopic(topic: Topic) = db.getTopicDao().upsert(topic)
 
+    suspend fun updateUpVote(id: Int) = db.getTopicDao().updateUpVote(id)
+
+    suspend fun updateDownVote(id: Int) = db.getTopicDao().updateDownVote(id)
+
     fun getTopics(count: Int) = db.getTopicDao().getTopics(count)
 }
