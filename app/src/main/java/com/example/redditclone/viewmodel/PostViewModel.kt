@@ -18,8 +18,9 @@ class PostViewModel(application: Application) : BaseAndroidViewModel(application
     private val db = AppDatabase(application)
     private val repository = TopicRepository(db)
 
+    // post topic by save to db
     fun postTopic() {
-
+        if (title.isNullOrEmpty()) return
         val topic = Topic(
             title,
             content,

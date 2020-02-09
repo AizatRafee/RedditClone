@@ -8,7 +8,7 @@ import androidx.lifecycle.AndroidViewModel
  * Created by aizat
  */
 abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel(application) {
-    private val arguments: Bundle = Bundle()
+    protected val arguments: Bundle = Bundle()
 
     fun addBundle(bundle: Bundle?) {
         arguments.putAll(bundle)

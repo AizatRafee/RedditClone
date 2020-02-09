@@ -29,7 +29,8 @@ class TopicHolder(private val itemTopicBinding: ItemTopicBinding) :
     fun bindTo(
         model: Topic,
         upVoteEvent: SingleLiveEvent<Int>,
-        downVoteEvent: SingleLiveEvent<Int>
+        downVoteEvent: SingleLiveEvent<Int>,
+        clickEvent: SingleLiveEvent<Int>
     ) {
         itemTopicBinding.topic = model
 
@@ -39,6 +40,10 @@ class TopicHolder(private val itemTopicBinding: ItemTopicBinding) :
 
         itemTopicBinding.ibDownvote.setOnClickListener {
             downVoteEvent.postValue(model.id)
+        }
+
+        itemTopicBinding.root.setOnClickListener {
+            clickEvent.postValue(model.id)
         }
     }
 

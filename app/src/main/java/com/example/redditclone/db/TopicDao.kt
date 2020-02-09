@@ -25,4 +25,7 @@ interface TopicDao {
 
     @Query("UPDATE topic SET vote = (vote-1) WHERE id = :id")
     suspend fun updateDownVote(id: Int): Int
+
+    @Query("SELECT * FROM topic WHERE id = :id")
+    fun getTopic(id: Int): LiveData<Topic>
 }

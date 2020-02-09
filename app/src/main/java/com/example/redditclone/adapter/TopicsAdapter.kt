@@ -13,6 +13,7 @@ class TopicsAdapter(var topic: List<Topic>?) : RecyclerView.Adapter<TopicHolder>
 
     val upVoteEvent = SingleLiveEvent<Int>()
     val downVoteEvent = SingleLiveEvent<Int>()
+    val clickEvent = SingleLiveEvent<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicHolder {
         return TopicHolder.create(parent)
@@ -24,7 +25,7 @@ class TopicsAdapter(var topic: List<Topic>?) : RecyclerView.Adapter<TopicHolder>
 
     override fun onBindViewHolder(holder: TopicHolder, position: Int) {
         topic?.get(position)?.let {
-            holder.bindTo(it, upVoteEvent, downVoteEvent)
+            holder.bindTo(it, upVoteEvent, downVoteEvent, clickEvent)
         }
     }
 }

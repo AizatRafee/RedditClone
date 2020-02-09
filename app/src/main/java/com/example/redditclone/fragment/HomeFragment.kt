@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.redditclone.R
 import com.example.redditclone.adapter.TopicsAdapter
 import com.example.redditclone.viewmodel.HomeViewModel
+import com.example.redditclone.viewmodel.HomeViewModel.Companion.TOPIC_ID
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -62,6 +63,13 @@ class HomeFragment : Fragment() {
 
         topicsAdapter.downVoteEvent.observe(viewLifecycleOwner, Observer {
             viewModel.downVote(it)
+        })
+
+        topicsAdapter.clickEvent.observe(viewLifecycleOwner, Observer {
+            val bundle = Bundle().apply {
+                putInt(TOPIC_ID, it)
+            }
+            findNavController().navigate(R.id.action_homeFragment_to_singlePostFragment, bundle)
         })
     }
 
